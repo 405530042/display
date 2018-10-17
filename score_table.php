@@ -76,11 +76,11 @@ else {
 
         else {
 
-            $scoreResult = (0.30 * $row2['start']) 
-                         + (0.25 * $row2['conception']) 
-                         + (0.25 * $row2['mode']) 
-                         + (0.10 * $row2['integrity']) 
-                         + (0.10 * $row2['consistency']);
+            $scoreResult = $row2['start']
+                         + $row2['conception']
+                         + $row2['mode']
+                         + $row2['integrity']
+                         + $row2['consistency'];
 
         }
 
