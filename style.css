@@ -724,3 +724,64 @@ th, td {
     margin-bottom: 50px;
 }
 /* } */
+
+#file-details {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 50px 100px;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+#file-details > .icon-cross {
+    position: absolute;
+    right: 16px;
+}
+
+#file-details > .icon-cross > div {
+    padding: 0 7px 12px;
+    background-color: transparent;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 4em;
+    line-height: 50px;
+    transform: rotate(45deg);
+    transition: .2s;
+}
+
+#file-details > .icon-cross > div:hover {
+    background-color: rgba(255, 255, 255, .1);
+}
+
+#file-details > .details {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+#file-details > .details > iframe {
+    width: 100%;
+    height: 100%;
+}
+
+#file-details > .details > h1 {
+    padding: 16px;
+}
+
+.hint-score {
+    color: red;
+    letter-spacing: 2px;
+}
+
+#data .file-name {
+    background-color: transparent;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#data .file-name:hover {
+    background-color: rgba(0, 0, 0, .1);
+}

@@ -216,11 +216,28 @@ else {
 
                 </div>
 
+                <div class="hint-score"></div>
+
             </div>
 
         </div>
 
     </div>
+
+</div>
+
+
+
+<div id="file-details" style="display: none;">
+
+    <div class="icon-cross">
+
+        <div onclick="fileDetailsHide();"> + </div>
+
+    </div>
+
+
+    <div class="details"></div>
 
 </div>
 
@@ -243,6 +260,13 @@ else {
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
 <script>
+
+/* score ( main page for teachers scoring )
+ *  \_ score-table ( list all files in chosen folder )
+ *      \_ score-file ( start to score for each part )
+ *          \_ score-file-show ( show file content )
+ *              \_ score-evaluate ( evaluate scores and insert into database )
+ */
 
     function selectAllCheckbox() {
 
@@ -278,7 +302,11 @@ else {
 
                 let inputToCheckAll = '全選 <input type="checkbox" onclick="selectAllCheckbox()">';
 
+                let hint = '*請勾選欲評分之專題。';
+
                 $('#select-all').html(inputToCheckAll);
+
+                $('.hint-score').html(hint);
 
             }
 
@@ -320,7 +348,11 @@ else {
 
                 $('#score-table').html(res);
 
-                if (res === '沒有選擇欲評分之專題。（1 秒後自動重新整理）') {
+                let hint = '*點選「專題名稱」欄位可查看內容。';
+
+                $('.hint-score').html(hint);
+
+                if (res === '沒有勾選欲評分之專題。（1 秒後自動重新整理）') {
 
                     setTimeout(() => {
 
@@ -338,27 +370,19 @@ else {
 
     }
 
-    function scoredSured() {
+    function showFile(fileId) {
 
         $('.full-page').show();
 
-        let fileToBeScored = [];
-
-        for (let i = 0; i < $('input[name="file_to_be_score"]:checked').length; i++) {
-
-            fileToBeScored[i] = $('input[name="file_to_be_score"]:checked').eq(i).val();
-
-        }
-
         $.ajax({
 
-            url: "score_file.php",
+            url: "score_file_show.php",
 
             method: "POST",
 
             data: {
 
-                scoreFile: fileToBeScored
+                file_id: fileId
 
             },
 
@@ -370,15 +394,71 @@ else {
 
             success: function (res) {
 
-                $('#score-table').html(res);
+                $('#file-details .details').html(res);
+
+                $('#file-details').show();
+
+                if (res === '<h1>開啟檔案出錯。（1 秒後自動重新整理）</h1>') {
+
+                    setTimeout(() => {
+
+                        location.reload();
+
+                    }, 1000);
+
+                }
 
             }
 
         });
 
-        return false;
-
     }
+
+    function fileDetailsHide() {
+        $('#file-details').hide();
+    }
+
+    // function scoredSured() {
+
+    //     $('.full-page').show();
+
+    //     let fileToBeScored = [];
+
+    //     for (let i = 0; i < $('input[name="file_to_be_score"]:checked').length; i++) {
+
+    //         fileToBeScored[i] = $('input[name="file_to_be_score"]:checked').eq(i).val();
+
+    //     }
+
+    //     $.ajax({
+
+    //         url: "score_file.php",
+
+    //         method: "POST",
+
+    //         data: {
+
+    //             scoreFile: fileToBeScored
+
+    //         },
+
+    //         complete: function () {
+
+    //             $('.full-page').hide();
+
+    //         },
+
+    //         success: function (res) {
+
+    //             $('#score-table').html(res);
+
+    //         }
+
+    //     });
+
+    //     return false;
+
+    // }
 
 </script>
 

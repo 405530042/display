@@ -47,7 +47,7 @@ if (isset($_POST['scoreFile'])) {
 
         $res .= "<tr>";
 
-        $res .= "    <td>";
+        $res .= "    <td class='file-name' onclick='showFile(" . $row['id'] . ")'>";
 
         $res .= "        " . $files[$i] . "<input type='hidden' name='the_upload_file[]' value='" . $row['id'] . "'>";
 

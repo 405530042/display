@@ -4,18 +4,6 @@ include('./connect/connect.php');
 
 session_start();
 
-// $categories = $_POST['id'];
-
-// $stmt = $conn->prepare("SELECT * FROM update_data WHERE direction =?");
-
-// $stmt->bind_param('s',$categories);
-
-// $stmt->execute();
-
-// $result = $stmt->get_result();
-
-// $stmt->close();
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $cs1 = count($_POST['start']);
