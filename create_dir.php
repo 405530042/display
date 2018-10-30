@@ -44,7 +44,10 @@ if ($_SESSION['user_id'] != 5) {
                                 <label> 資料夾名稱 </label>
                                 <input type="text" name="create_dir" required>
                             </div>
-
+							
+                                <label for="formis"> 若為資管系展請勾選 </label>
+                                <input type="checkbox" name="formis" value="1">
+       
                             <div class="form-group">
                                 <label for="meeting"> 繳交期限 </label>
                                 <input name="deadline" type="datetime-local" id="bookdate" value="<?php echo date(" Y-m-d\TH:i "); ?>" min="<?php echo date(" Y-m-d\TH:i "); ?>">
@@ -152,20 +155,22 @@ if ($_SESSION['user_id'] != 5) {
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if(isset($_POST['create_direction'])){
+		
 		if (!isset($_POST['create_dir']) || trim($_POST['create_dir']) == '') {
 			echo 'dir_name_empty';
 // 			header("refresh:1.5; url=./create_member.php");
 ?>
-			<script type="text/javascript">
+ 			<script type="text/javascript">
 			    setTimeout(() => {
 			        window.location ="./create_member.php";
 			    }, 1500);
             </script>
-<?php
+ <?php
 		}
 		else {
 			$deadline = htmlspecialchars($_POST['deadline']);
 			$create_dir = htmlspecialchars($_POST['create_dir']);
+			$formis = (isset($_POST['formis']))?1:0;
 			$path_pdf = './update/' . $create_dir;
 			$path_img = './update/img/' . $create_dir;
 
@@ -173,8 +178,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 				mkdir($path_pdf);
 				mkdir($path_img);
-				$stmt = $conn->prepare("INSERT INTO direction (dir_name,deadline) VALUES (?,?)");
-				$stmt->bind_param('ss', $create_dir,$deadline);
+				$stmt = $conn->prepare("INSERT INTO direction (dir_name,misorfoundation,deadline) VALUES (?,?)");
+				$stmt->bind_param('sis', $create_dir,$formis,$deadline);
 				$stmt->execute();
 				$stmt->close();
 				?>
@@ -194,8 +199,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			    }, 1250);
             </script>
 <?php
-			}
-		}
+		// 	}
+		// }
 	}
 	else if(isset($_POST['delete_dir'])) {
 		$id = htmlspecialchars($_POST['delete_dir']);
