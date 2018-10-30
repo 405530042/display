@@ -34,7 +34,7 @@ if ($rows == 0) {
 }
 
 else {
-
+    if($_SESSION['misjudge']==0){
     $row = mysqli_fetch_assoc($result);
 
     $stmt2 = $conn->prepare("SELECT id, name FROM member WHERE id = ?");
@@ -75,6 +75,42 @@ else {
 
     $res .= "</tr>";
 
+}
+else{
+    $row = mysqli_fetch_assoc($result);
+
+    $stmt2 = $conn->prepare("SELECT id, name FROM member WHERE id = ?");
+
+    $stmt2->bind_param('i', $row['member_id']);
+
+    $stmt2->execute();
+
+    $result2 = $stmt2->get_result();
+
+    $stmt2->close();
+
+    $row2 = mysqli_fetch_assoc($result2);
+
+    $totalScore = $row['innovation'] 
+                + $row['complete'] 
+                + $row['presentation'];
+
+    $res .= "<tr>";
+
+    $res .= "    <th> " . $_POST['fileName'] . " </th>";
+
+    $res .= "    <th style='width: 120px;'> " . $row['innovation'] . " </th>";
+
+    $res .= "    <th style='width: 120px;'> " . $row['complete'] . " </th>";
+
+    $res .= "    <th style='width: 120px;'> " . $row['presentation'] . " </th>";
+
+    $res .= "    <th style='width: 52px;'> " . $totalScore . " </th>";
+
+    $res .= "    <th style='width: 70px;'> " . $row2['name'] . " </th>";
+
+    $res .= "</tr>";
+}
 }
 
 echo $res;

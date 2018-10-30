@@ -130,7 +130,7 @@ else {
 
                 <li class="profile-box">
 
-                    <a onclick="li(`<?php echo $row['dir_name'] ?>`)">
+                    <a onclick="li(`<?php echo $row['dir_name'] ; ?>`)">
 
                         <div class="cover" style="background-image: url('./img/FILE.png');"></div>
 
@@ -138,7 +138,7 @@ else {
 
                     <div class="title">
 
-                        <span> <?php echo $row['dir_name'] ?> </span>
+                        <span> <?php echo $row['dir_name']; ?> </span>
 
                     </div>
 
@@ -203,7 +203,9 @@ else {
                 <div class="info-content-table">
 
                     <form action="score_evaluate.php" method="POST">
-
+                    <?php 
+                    if($row['dir_name']==0){
+                        ?>
                         <table id="score-table">
 
                             <thead>
@@ -247,7 +249,52 @@ else {
                             </tbody>
 
                         </table>
+                        <?php 
+                    }
+                    else{
+                        ?>
+                         <table id="score-table">
 
+<thead>
+
+    <tr>
+
+        <th> 專題名稱 </th>
+
+        <th style="width: 120px;"> 創新度(主題/技術)(50%) </th>
+
+        <th style="width: 120px;">完整性/實用度(30%) </th>
+
+        <th style="width: 120px;"> 報告分數(20%) </th>
+
+         <th style="width: 52px;"> 總分 </th>
+
+        <th style="width: 70px;"> 評分人 </th>
+
+    </tr>
+
+</thead>
+
+
+
+<tbody id="data">
+
+    <tr>
+
+        <td class="td-center">
+
+            尚未選擇檔案
+
+        </td>
+
+    </tr>
+
+</tbody>
+
+</table>
+            <?php
+                    }
+                    ?>
                     </form>
 
                 </div>

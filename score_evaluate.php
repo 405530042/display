@@ -5,7 +5,7 @@ include('./connect/connect.php');
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+    if($_SESSION['misjudge']==0){
     $cs1 = count($_POST['start']);
 
     $cs2 = count($_POST['conception']);
@@ -41,7 +41,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->execute();
 
         }
+    }
+    else{
+        $file_id = htmlspecialchars($_POST['the_upload_file'][$i]);
 
+        $s1 = htmlspecialchars($_POST['innovation'][$i]);
+
+        $s2 = htmlspecialchars($_POST['complete'][$i]);
+
+        $s3 = htmlspecialchars($_POST['presentation'][$i]);
+
+        $time = htmlspecialchars(date("Y-m-d H:i:s"));
+
+        $stmt = $conn->prepare("INSERT INTO `score` (member_id, file_id, start, conception, mode, integrity, consistency, evaluate_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+
+        $stmt->bind_param('iiiiis', $_SESSION['id'], $file_id, $s1, $s2, $s3, $time);
+
+        $stmt->execute();
+    }
         echo "評分成功。";
 
     }
