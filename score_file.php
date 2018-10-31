@@ -134,15 +134,11 @@ else{
 
     $res .= "        <th> 專題名稱 </th>";
 
-    $res .= "        <th style='width: 120px;'> 創業<br>可執行性<br>(30%) </th>";
+    $res .= "        <th style='width: 120px;'> 創新度(50%) </th>";
 
-    $res .= "        <th style='width: 120px;'> 創業構想與<br>市場機會<br>(25%) </th>";
+    $res .= "        <th style='width: 120px;'>完整度 (25%) </th>";
 
-    $res .= "        <th style='width: 120px;'> 產品或<br>服務模式<br>(25%) </th>";
-
-    $res .= "        <th style='width: 120px;'> 企劃內容<br>架構完整性<br>(10%) </th>";
-
-    $res .= "        <th style='width: 120px;'> 企劃內容<br>一致性<br>(10%) </th>";
+    $res .= "        <th style='width: 120px;'> 報告呈現(25%) </th>";
 
     $res .= "    </tr>";
 
