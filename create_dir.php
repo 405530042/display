@@ -171,8 +171,10 @@ setTimeout(() => {
                 $stmt->execute();
                 $stmt->close();
                 ?>
+
 <!--header("Location:./create_dir.php");-->
 <script type="text/javascript">
+alert(<?php echo mysqli_error() ; ?>);
 window.location = "./create_dir.php";
 </script>
 <?php
