@@ -44,9 +44,6 @@ if ($_SESSION['user_id'] != 5) {
                                 <label> 資料夾名稱 </label>
                                 <input type="text" name="create_dir" required>
                             </div>
-							
-                                <label for="formis"> 若為資管系展請勾選 </label>
-                                <input type="checkbox" name="formis" value="1">
        
                             <div class="form-group">
                                 <label for="meeting"> 繳交期限 </label>
