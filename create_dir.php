@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		else {
 			$deadline = htmlspecialchars($_POST['deadline']);
 			$create_dir = htmlspecialchars($_POST['create_dir']);
-			$formis = (isset($_POST['formis']))?1:0;
+			//$formis = (isset($_POST['formis']))?1:0;
 			$path_pdf = './update/' . $create_dir;
 			$path_img = './update/img/' . $create_dir;
 
@@ -178,8 +178,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 				mkdir($path_pdf);
 				mkdir($path_img);
-				$stmt = $conn->prepare("INSERT INTO direction (dir_name,misorfoundation,deadline) VALUES (?,?)");
-				$stmt->bind_param('sis', $create_dir,$formis,$deadline);
+				$stmt = $conn->prepare("INSERT INTO direction (dir_name,deadline) VALUES (?,?)");
+				$stmt->bind_param('ss', $create_dir,$deadline);
 				$stmt->execute();
 				$stmt->close();
 				?>
