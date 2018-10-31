@@ -143,7 +143,11 @@ setTimeout(() => {
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['create_direction'])){
-        
+        ?>
+<script type="text/javascript">
+alert('gg');
+</script>
+<?php
         if (!isset($_POST['create_dir']) || trim($_POST['create_dir']) == '') {
             echo 'dir_name_empty';
 //          header("refresh:1.5; url=./create_member.php");
@@ -170,8 +174,8 @@ setTimeout(() => {
                 $stmt->bind_param('sis', $create_dir,$formis,$deadline);
                 $stmt->execute();
                 ?>
-                <<script>
-                    alert(<?php  printf("Error: %s.\n", $stmt->error); ?>)
+                <script>
+                    alert(<?php  printf("Error: %s.\n", $stmt->error); ?>);
                 </script>
                 <?php
                 $stmt->close();
@@ -179,8 +183,8 @@ setTimeout(() => {
 
 <!--header("Location:./create_dir.php");-->
 <script type="text/javascript">
-alert(<?php echo mysqli_error() ; ?>);
-window.location = "./create_dir.php";
+     alert(<?php  printf("Error: %s.\n", $stmt->error); ?>);
+//window.location = "./create_dir.php";
 </script>
 <?php
             }
