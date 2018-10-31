@@ -8,6 +8,7 @@ $res = "";
 
 if (isset($_POST['scoreFile'])) {
     if($_SESSION['misjudge']==0){
+        
     $files = $_POST['scoreFile'];
 
     $res .= "<thead>";
