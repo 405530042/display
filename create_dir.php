@@ -169,6 +169,7 @@ setTimeout(() => {
                 $stmt = $conn->prepare("INSERT INTO direction (dir_name,misorfoundation,deadline) VALUES (?,?,?)");
                 $stmt->bind_param('sis', $create_dir,$formis,$deadline);
                 $stmt->execute();
+                printf("Error: %s.\n", $stmt->error);
                 $stmt->close();
                 ?>
 
