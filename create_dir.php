@@ -41,6 +41,8 @@ setTimeout(() => {
                             <label> 資料夾名稱 </label>
                             <input type="text" name="create_dir" required>
                         </div>
+                        <label for="formis"> 若為資管系展請勾選 </label>
+                        <input type="checkbox" name="formis" value="1">
                         <div class="form-group">
                             <label for="meeting"> 繳交期限 </label>
                             <input name="deadline" type="datetime-local" id="bookdate" value="<?php echo date(" Y-m-d\TH:i "); ?>" min="<?php echo date(" Y-m-d\TH:i "); ?>">
@@ -156,7 +158,7 @@ setTimeout(() => {
         else {
             $deadline = htmlspecialchars($_POST['deadline']);
             $create_dir = htmlspecialchars($_POST['create_dir']);
-            //$formis = (isset($_POST['formis']))?1:0;
+            $formis = (isset($_POST['formis']))?1:0;
             $path_pdf = './update/' . $create_dir;
             $path_img = './update/img/' . $create_dir;
 
@@ -164,8 +166,8 @@ setTimeout(() => {
     
                 mkdir($path_pdf);
                 mkdir($path_img);
-                $stmt = $conn->prepare("INSERT INTO direction (dir_name,deadline) VALUES (?,?)");
-                $stmt->bind_param('ss', $create_dir,$deadline);
+                $stmt = $conn->prepare("INSERT INTO direction (dir_name,misorfoundation,deadline) VALUES (?,?)");
+                $stmt->bind_param('sis', $create_dir,$formis,$deadline);
                 $stmt->execute();
                 $stmt->close();
                 ?>
@@ -185,8 +187,8 @@ setTimeout(() => {
 }, 1250);
 </script>
 <?php
-        //  }
-        // }
+         }
+        }
     }
     else if(isset($_POST['delete_dir'])) {
         $id = htmlspecialchars($_POST['delete_dir']);
@@ -212,10 +214,9 @@ setTimeout(() => {
 }, 1000);
 </script>
 <?php
-    }
-}
-}
-}
+         }
+     }
+   }
 ?>
 <script>
 function delete_double_check() {
