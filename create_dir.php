@@ -45,7 +45,7 @@ setTimeout(() => {
                         <input type="checkbox" name="formis" value="1">
                         <div class="form-group">
                             <label for="meeting"> 繳交期限 </label>
-                            <input name="deadline" type="datetime-local" id="bookdate" value="<?php echo date(" yyyy-MM-ddThh:mm "); ?>" min="<?php echo date(" yyyy-MM-ddThh:mm "); ?>">
+                            <input name="deadline" type="datetime-local" id="bookdate" value="<?php echo date(" Y-m-d\TH:i:ss "); ?>" min="<?php echo date(" Y-m-d\TH:i:ss "); ?>">
                         </div>
                         <div class="form-group submit-area">
                             <button name="create_direction" type="submit">
@@ -166,7 +166,7 @@ setTimeout(() => {
     
                 mkdir($path_pdf);
                 mkdir($path_img);
-                $stmt = $conn->prepare("INSERT INTO direction (dir_name,misorfoundation,deadline) VALUES (?,?)");
+                $stmt = $conn->prepare("INSERT INTO direction (dir_name,misorfoundation,deadline) VALUES (?,?,?)");
                 $stmt->bind_param('sis', $create_dir,$formis,$deadline);
                 $stmt->execute();
                 $stmt->close();
