@@ -45,7 +45,7 @@ setTimeout(() => {
                         <input type="checkbox" name="formis" value="1">
                         <div class="form-group">
                             <label for="meeting"> 繳交期限 </label>
-                            <input name="deadline" type="datetime-local" id="bookdate" value="<?php echo date(" Y-m-d\TH:i "); ?>" min="<?php echo date(" Y-m-d\TH:i "); ?>">
+                            <input name="deadline" type="datetime-local" id="bookdate" value="<?php echo date(" yyyy-MM-ddThh:mm "); ?>" min="<?php echo date(" yyyy-MM-ddThh:mm "); ?>">
                         </div>
                         <div class="form-group submit-area">
                             <button name="create_direction" type="submit">
