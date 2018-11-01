@@ -204,7 +204,7 @@ else {
 
                     <form action="score_evaluate.php" method="POST">
                     <?php 
-                    if($row['dir_name']==0){
+                    if($row['misorfoundation']==0){
                         ?>
                         <table id="score-table">
 
