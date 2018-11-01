@@ -129,15 +129,15 @@ else {
   
             $res .="         <th> 專題名稱 </th>";
      
-            $res .="         <th style=width: 120px;> 創新度(主題/技術)(50%) </th>";
+            $res .="         <th style='width: 120px;'> 創新度(主題/技術)(50%) </th>";
       
-            $res .="         <th style=width: 120px;>完整性/實用度(30%) </th>";
+            $res .="         <th style='width: 120px;'>完整性/實用度(30%) </th>";
         
-            $res .="         <th style=width: 120px;> 報告分數(20%) </th>";
+            $res .="         <th style='width: 120px;'> 報告分數(20%) </th>";
      
-            $res .="          <th style=width: 52px;> 總分 </th>";
+            $res .="          <th style='width: 52px;'> 總分 </th>";
       
-            $res .="         <th style=width: 70px;> 評分人 </th>"
+            $res .="         <th style='width: 70px;'> 評分人 </th>";
      
             $res .="     </tr>";
       

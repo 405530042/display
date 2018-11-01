@@ -294,7 +294,7 @@ else {
             },
 
             success: function (res) {
-
+                alert(res);
                 $('#data').html(res);
 
             }
