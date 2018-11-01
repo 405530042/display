@@ -56,7 +56,7 @@ else {
                     + $row['integrity'] 
                     + $row['consistency'];
 
-                    $res .=`   <table id="score-table">
+                    $res .=`
 
                     <thead>
 
@@ -96,9 +96,7 @@ else {
 
                         </tr>
 
-                    </tbody>
-
-                </table>`;
+                    </tbody>`;
 
         $res .= "<tr>";
 
@@ -140,8 +138,7 @@ else {
                     + $row['complete'] 
                     + $row['presentation'];
 
-            $res .=`<table id="score-table">
-
+            $res .=`
                     <thead>
                     
                         <tr>
@@ -160,8 +157,7 @@ else {
                     
                         </tr>
                     
-                    </thead>          
-                    </table>`;
+                    </thead>`;
                 
 
         $res .= "<tr>";
