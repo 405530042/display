@@ -49,35 +49,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     }
     else{
-        echo "gg";
-        // $cs1 = count($_POST['innovation']);
+        $cs1 = count($_POST['innovation']);
 
-        // $cs2 = count($_POST['complete']);
+        $cs2 = count($_POST['complete']);
     
-        // $cs3 = count($_POST['presentation']);
+        $cs3 = count($_POST['presentation']);
 
-        // if ($cs1 == $cs2 && $cs1 == $cs3) {
+        if ($cs1 == $cs2 && $cs1 == $cs3) {
 
-        //     for ($i = 0; $i < $cs1; $i++) {
-        // $file_id = htmlspecialchars($_POST['the_upload_file'][$i]);
+            for ($i = 0; $i < $cs1; $i++) {
+        $file_id = htmlspecialchars($_POST['the_upload_file'][$i]);
 
-        // $s1 = htmlspecialchars($_POST['innovation'][$i]);
+        $s1 = htmlspecialchars($_POST['innovation'][$i]);
 
-        // $s2 = htmlspecialchars($_POST['complete'][$i]);
+        $s2 = htmlspecialchars($_POST['complete'][$i]);
 
-        // $s3 = htmlspecialchars($_POST['presentation'][$i]);
+        $s3 = htmlspecialchars($_POST['presentation'][$i]);
 
-        // $time = htmlspecialchars(date("Y-m-d H:i:s"));
+        $time = htmlspecialchars(date("Y-m-d H:i:s"));
 
-        // $stmt = $conn->prepare("INSERT INTO `score` (member_id, file_id,innovation,complete,presentation,  evaluate_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO `score` (member_id, file_id,innovation,complete,presentation,  evaluate_time) VALUES (?, ?, ?, ?, ?, ?)");
 
-        // $stmt->bind_param('iiiiis', $_SESSION['id'], $file_id, $s1, $s2, $s3, $time);
-        // $stmt->execute();
-        //     }
-        //     echo "評分成功。";
-        // }
+        $stmt->bind_param('iiiiis', $_SESSION['id'], $file_id, $s1, $s2, $s3, $time);
+        $stmt->execute();
+            }
+            echo "評分成功。";
+        }
         // else {
-        //     printf("Error: %s.\n", $stmt->error);
         //     echo "發生錯誤，請再試一次。";
     
         // }
