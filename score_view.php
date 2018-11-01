@@ -34,11 +34,6 @@ if ($rows == 0) {
 }
 
 else {
-?>
-    <script>
-        alert(<?php echo $_SEESION['misjudge']; ?>);
-    </script>
-<?php
     
     if($_SESSION['misjudge']==0){
         $row = mysqli_fetch_assoc($result);
