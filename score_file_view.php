@@ -19,7 +19,7 @@ $stmt->close();
 
 $stmt = $conn->prepare("SELECT misorfoundation FROM direction WHERE dir_name = ?");
 
-$stmt->bind_param('s', $dirname);
+$stmt->bind_param('s', $categories);
 
 $stmt->execute();
 
