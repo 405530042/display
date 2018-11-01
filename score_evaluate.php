@@ -42,7 +42,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         }
     }
+    else {
+        printf("Error: %s.\n", $stmt->error);
+        echo "發生錯誤，請再試一次。";
+
+    }
+    }
     else{
+        $cs1 = count($_POST['innovation']);
+
+        $cs2 = count($_POST['complete']);
+    
+        $cs3 = count($_POST['presentation']);
+
+        if ($cs1 == $cs2 && $cs1 == $cs3) {
+
+            for ($i = 0; $i < $cs1; $i++) {
         $file_id = htmlspecialchars($_POST['the_upload_file'][$i]);
 
         $s1 = htmlspecialchars($_POST['innovation'][$i]);
@@ -57,12 +72,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $stmt->bind_param('iiiiis', $_SESSION['id'], $file_id, $s1, $s2, $s3, $time);
 
-        $stmt->execute();
-    }
         echo "評分成功。";
-
+        $stmt->execute();
+            }
+        }
     }
-
     else {
         printf("Error: %s.\n", $stmt->error);
         echo "發生錯誤，請再試一次。";
