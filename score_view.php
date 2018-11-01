@@ -57,7 +57,7 @@ else {
                     + $row['consistency'];
 
                     $res .=`
-
+                        
                     <thead>
 
                         <tr>
@@ -80,24 +80,8 @@ else {
 
                         </tr>
 
-                    </thead>
-
-                    
-
-                    <tbody id="data">
-
-                        <tr>
-
-                            <td class="td-center">
-
-                                尚未選擇檔案
-
-                            </td>
-
-                        </tr>
-
-                    </tbody>`;
-
+                    </thead>`;
+        $res .="<tbody>";
         $res .= "<tr>";
 
         $res .= "    <th> " . $_POST['fileName'] . " </th>";
@@ -117,6 +101,7 @@ else {
         $res .= "    <th style='width: 70px;'> " . $row2['name'] . " </th>";
 
         $res .= "</tr>";
+        $res .= "</tbody>";
 
     }
     else{
@@ -158,7 +143,8 @@ else {
                         </tr>
                     
                     </thead>`;
-                
+        
+        $res .="<tbody>";
 
         $res .= "<tr>";
 
@@ -175,6 +161,8 @@ else {
         $res .= "    <th style='width: 70px;'> " . $row2['name'] . " </th>";
 
         $res .= "</tr>";
+
+        $res .= "</tbody>";
     }
 }
 
