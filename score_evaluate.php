@@ -76,11 +76,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
             }
         }
-    }
-    else {
-        printf("Error: %s.\n", $stmt->error);
-        echo "發生錯誤，請再試一次。";
-
+        else {
+            printf("Error: %s.\n", $stmt->error);
+            echo "發生錯誤，請再試一次。";
+    
+        }
     }
 }
 
