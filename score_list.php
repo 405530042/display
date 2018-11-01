@@ -204,7 +204,7 @@ else {
 
                     <form action="score_evaluate.php" method="POST">
                     <?php 
-                    if($_SESSION['misorfoundation']==0){
+                    if($_SESSION['misjudge']==0){
                         ?>
                         <table id="score-table">
 
