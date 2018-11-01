@@ -56,6 +56,50 @@ else {
                     + $row['integrity'] 
                     + $row['consistency'];
 
+                    $res .=`   <table id="score-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th> 專題名稱 </th>
+
+                            <th style="width: 120px;"> 創業<br>可執行性<br>(30%) </th>
+
+                            <th style="width: 120px;"> 創業構想與<br>市場機會<br>(25%) </th>
+
+                            <th style="width: 120px;"> 產品或<br>服務模式<br>(25%) </th>
+
+                            <th style="width: 120px;"> 企劃內容<br>架構完整性<br>(10%) </th>
+
+                            <th style="width: 120px;"> 企劃內容<br>一致性<br>(10%) </th>
+
+                            <th style="width: 52px;"> 總分 </th>
+
+                            <th style="width: 70px;"> 評分人 </th>
+
+                        </tr>
+
+                    </thead>
+
+                    
+
+                    <tbody id="data">
+
+                        <tr>
+
+                            <td class="td-center">
+
+                                尚未選擇檔案
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>`;
+
         $res .= "<tr>";
 
         $res .= "    <th> " . $_POST['fileName'] . " </th>";
@@ -95,6 +139,30 @@ else {
         $totalScore = $row['innovation'] 
                     + $row['complete'] 
                     + $row['presentation'];
+
+            $res .=`<table id="score-table">
+
+                    <thead>
+                    
+                        <tr>
+                    
+                            <th> 專題名稱 </th>
+                    
+                            <th style="width: 120px;"> 創新度(主題/技術)(50%) </th>
+                    
+                            <th style="width: 120px;">完整性/實用度(30%) </th>
+                    
+                            <th style="width: 120px;"> 報告分數(20%) </th>
+                    
+                             <th style="width: 52px;"> 總分 </th>
+                    
+                            <th style="width: 70px;"> 評分人 </th>
+                    
+                        </tr>
+                    
+                    </thead>          
+                    </table>`;
+                
 
         $res .= "<tr>";
 
