@@ -55,32 +55,30 @@ else {
                     + $row['mode'] 
                     + $row['integrity'] 
                     + $row['consistency'];
+     
+                    $res .="    <thead>";
 
-                    $res .=`
-                        
-                    <thead>
+                    $res .="    <tr>";
 
-                        <tr>
+                    $res .="        <th> 專題名稱 </th>";
 
-                            <th> 專題名稱 </th>
+                    $res .="        <th style='width: 120px;'> 創業<br>可執行性<br>(30%) </th>";
 
-                            <th style="width: 120px;"> 創業<br>可執行性<br>(30%) </th>
+                    $res .="        <th style='width: 120px;'> 創業構想與<br>市場機會<br>(25%) </th>";
 
-                            <th style="width: 120px;"> 創業構想與<br>市場機會<br>(25%) </th>
+                    $res .="        <th style='width: 120px;'> 產品或<br>服務模式<br>(25%) </th>";
 
-                            <th style="width: 120px;"> 產品或<br>服務模式<br>(25%) </th>
+                    $res .="        <th style='width: 120px;'> 企劃內容<br>架構完整性<br>(10%) </th>";
 
-                            <th style="width: 120px;"> 企劃內容<br>架構完整性<br>(10%) </th>
+                    $res .="        <th style='width: 120px;'> 企劃內容<br>一致性<br>(10%) </th>";
 
-                            <th style="width: 120px;"> 企劃內容<br>一致性<br>(10%) </th>
+                    $res .="        <th style='width: 52px;'> 總分 </th>";
 
-                            <th style="width: 52px;"> 總分 </th>
+                    $res .="        <th style='width: 70px;'> 評分人 </th>";
 
-                            <th style="width: 70px;"> 評分人 </th>
+                    $res .="    </tr>";
 
-                        </tr>
-
-                    </thead>`;
+                    $res .="    </thead>";
         $res .="<tbody>";
         $res .= "<tr>";
 
