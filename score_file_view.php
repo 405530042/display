@@ -17,6 +17,19 @@ $result = $stmt->get_result();
 
 $stmt->close();
 
+$stmt = $conn->prepare("SELECT misorfoundation FROM direction WHERE dir_name = ?");
+
+$stmt->bind_param('s', $dirname);
+
+$stmt->execute();
+
+$re = $stmt->get_result();
+
+$stmt->close();
+
+$_SESSION['misjudge']=mysqli_fetch_array($re)[0];//to judge if it is for mis exhibition or foundation
+
+
 $rows = mysqli_num_rows($result);
 
 if ($rows == 0) {
