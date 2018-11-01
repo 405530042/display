@@ -183,7 +183,7 @@ else{
 
         $res .= "        <div class='form-group'>";
 
-        $res .= "            <input type='number' min='0' max='30' name='complete[]' required>";
+        $res .= "            <input type='number' min='0' max='25' name='complete[]' required>";
 
         $res .= "        </div>";
 
@@ -193,7 +193,7 @@ else{
 
         $res .= "        <div class='form-group'>";
 
-        $res .= "            <input type='number' min='0' max='20' name='presentation[]' required>";
+        $res .= "            <input type='number' min='0' max='25' name='presentation[]' required>";
 
         $res .= "        </div>";
 

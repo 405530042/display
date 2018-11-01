@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $time = htmlspecialchars(date("Y-m-d H:i:s"));
 
-        $stmt = $conn->prepare("INSERT INTO `score` (member_id, file_id, start, conception, mode, integrity, consistency, evaluate_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO `score` (member_id, file_id,innovation,complete,presentation,  evaluate_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
         $stmt->bind_param('iiiiis', $_SESSION['id'], $file_id, $s1, $s2, $s3, $time);
 
