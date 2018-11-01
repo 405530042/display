@@ -143,11 +143,6 @@ setTimeout(() => {
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['create_direction'])){
-        ?>
-<script type="text/javascript">
-alert('gg');
-</script>
-<?php
         if (!isset($_POST['create_dir']) || trim($_POST['create_dir']) == '') {
             echo 'dir_name_empty';
 //          header("refresh:1.5; url=./create_member.php");
@@ -165,25 +160,17 @@ setTimeout(() => {
             $formis = (isset($_POST['formis']))?1:0;
             $path_pdf = './update/' . $create_dir;
             $path_img = './update/img/' . $create_dir;
-
-            if (!file_exists($path_pdf)&&!file_exists($path_img)) {
-    
+  if (!file_exists($path_pdf)&&!file_exists($path_img)) {
                 mkdir($path_pdf);
                 mkdir($path_img);
                 $stmt = $conn->prepare("INSERT INTO direction (dir_name,misorfoundation,deadline) VALUES (?,?,?)");
                 $stmt->bind_param('sis', $create_dir,$formis,$deadline);
                 $stmt->execute();
-                ?>
-                <script>
-                    alert(<?php  printf("Error: %s.\n", $stmt->error); ?>);
-                </script>
-                <?php
-                $stmt->close();
-                ?>
-
+               	$stmt->close();
+?>
 <!--header("Location:./create_dir.php");-->
 <script type="text/javascript">
-     alert(<?php  printf("Error: %s.\n", $stmt->error); ?>);
+	alert('gg2');
 //window.location = "./create_dir.php";
 </script>
 <?php
